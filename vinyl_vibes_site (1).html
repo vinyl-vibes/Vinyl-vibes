@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vinyl Vibes</title>
+  <style>
+    body {
+      font-family: 'Helvetica Neue', sans-serif;
+      margin: 0;
+      background: linear-gradient(135deg, #fafafa, #fff0f5);
+      color: #222;
+    }
+    header {
+      background: #1a1a1a;
+      color: #f1f1f1;
+      padding: 2rem;
+      text-align: center;
+      position: relative;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+    header p {
+      font-style: italic;
+      color: #ccc;
+    }
+    .music-icons {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      display: flex;
+      gap: 1rem;
+      font-size: 1.5rem;
+    }
+    .container {
+      max-width: 960px;
+      margin: auto;
+      padding: 2rem 1rem;
+    }
+    .album-review {
+      background: white;
+      margin-bottom: 2rem;
+      padding: 1.5rem;
+      border-left: 5px solid #ff5c5c;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      border-radius: 8px;
+      position: relative;
+    }
+    .album-review::before {
+      content: '🎸';
+      position: absolute;
+      font-size: 2rem;
+      top: -1rem;
+      left: -1.5rem;
+    }
+    .album-review h2 {
+      margin-top: 0;
+      color: #d62828;
+    }
+    .rating {
+      color: #f1c40f;
+      font-weight: bold;
+    }
+    .genre {
+      font-style: italic;
+      color: #555;
+    }
+    .top-rated {
+      background: #fff3cd;
+      padding: 1rem;
+      border: 1px solid #ffeeba;
+      margin-bottom: 2rem;
+      border-radius: 8px;
+    }
+    footer {
+      text-align: center;
+      background: #1a1a1a;
+      color: #ccc;
+      padding: 1rem;
+      margin-top: 3rem;
+    }
+    #add-review-form {
+      background: #fff8f0;
+      padding: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+    }
+    #add-review-form input, #add-review-form textarea {
+      width: 100%;
+      margin-bottom: 1rem;
+      padding: 0.5rem;
+      font-size: 1rem;
+    }
+    #add-review-form button {
+      background: #d62828;
+      color: white;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .filters {
+      margin-bottom: 2rem;
+    }
+    .filters input {
+      padding: 0.5rem;
+      font-size: 1rem;
+      margin-right: 1rem;
+      width: calc(50% - 1rem);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🎵 Vinyl Vibes</h1>
+    <p>Dove la musica suona ancora sul giradischi</p>
+    <div class="music-icons">
+      <span>🎸</span>
+      <span>🎹</span>
+      <span>🥁</span>
+      <span>🎷</span>
+    </div>
+  </header>
+
+  <div class="container">
+    <form id="add-review-form">
+      <h3>Aggiungi una recensione</h3>
+      <input type="text" id="album-title" placeholder="Titolo dell'album" required>
+      <input type="text" id="album-genre" placeholder="Genere musicale" required>
+      <input type="text" id="album-rating" placeholder="Valutazione (es. ★★★★☆)" required>
+      <textarea id="album-description" placeholder="Descrizione" rows="4" required></textarea>
+      <button type="submit">Aggiungi</button>
+    </form>
+
+    <div class="filters">
+      <input type="text" id="filter-genre" placeholder="Filtra per genere">
+      <input type="text" id="filter-artist" placeholder="Filtra per artista/gruppo">
+    </div>
+
+    <div id="top-rated" class="top-rated">
+      <h3>📈 I dischi più votati</h3>
+      <ul id="top-rated-list"></ul>
+    </div>
+
+    <div id="reviews">
+      <section class="album-review">
+        <h2>Fleetwood Mac – Rumours (1977)</h2>
+        <p class="genre">Genere: Rock / Soft Rock</p>
+        <p class="rating">Valutazione: ★★★★★</p>
+        <p>Un classico intramontabile che unisce voci indimenticabili, emozioni autentiche e una produzione impeccabile.</p>
+      </section>
+      <section class="album-review">
+        <h2>Kendrick Lamar – To Pimp a Butterfly (2015)</h2>
+        <p class="genre">Genere: Hip Hop / Jazz Rap</p>
+        <p class="rating">Valutazione: ★★★★☆</p>
+        <p>Un disco denso e complesso, pieno di sperimentazioni musicali e liriche profonde.</p>
+      </section>
+      <section class="album-review">
+        <h2>The Clash – London Calling (1979)</h2>
+        <p class="genre">Genere: Punk Rock / Reggae</p>
+        <p class="rating">Valutazione: ★★★★★</p>
+        <p>Un capolavoro rivoluzionario che ha ampliato i confini del punk rock con influenze reggae e ska.</p>
+      </section>
+      <section class="album-review">
+        <h2>Pink Floyd – The Dark Side of the Moon (1973)</h2>
+        <p class="genre">Genere: Progressive Rock</p>
+        <p class="rating">Valutazione: ★★★★★</p>
+        <p>Un'esperienza sonora senza tempo, che esplora la condizione umana attraverso paesaggi sonori psichedelici.</p>
+      </section>
+      <section class="album-review">
+        <h2>The Rolling Stones – Exile on Main St. (1972)</h2>
+        <p class="genre">Genere: Rock / Blues</p>
+        <p class="rating">Valutazione: ★★★★☆</p>
+        <p>Un disco crudo e vibrante che cattura l'anima del rock 'n' roll in ogni traccia.</p>
+      </section>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Vinyl Vibes - Recensioni sincere, vibrazioni autentiche</p>
+  </footer>
+
+  <script>
+    const form = document.getElementById('add-review-form');
+    const reviewsContainer = document.getElementById('reviews');
+    const filterGenre = document.getElementById('filter-genre');
+    const filterArtist = document.getElementById('filter-artist');
+    const topRatedList = document.getElementById('top-rated-list');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const title = document.getElementById('album-title').value;
+      const genre = document.getElementById('album-genre').value;
+      const rating = document.getElementById('album-rating').value;
+      const description = document.getElementById('album-description').value;
+
+      const section = document.createElement('section');
+      section.classList.add('album-review');
+      section.innerHTML = `
+        <h2>${title}</h2>
+        <p class="genre">Genere: ${genre}</p>
+        <p class="rating">Valutazione: ${rating}</p>
+        <p>${description}</p>
+      `;
+
+      reviewsContainer.appendChild(section);
+      updateTopRated();
+      form.reset();
+    });
+
+    function filterReviews() {
+      const genreVal = filterGenre.value.toLowerCase();
+      const artistVal = filterArtist.value.toLowerCase();
+      const reviews = document.querySelectorAll('.album-review');
+
+      reviews.forEach(review => {
+        const genreText = review.querySelector('.genre').textContent.toLowerCase();
+        const titleText = review.querySelector('h2').textContent.toLowerCase();
+
+        const matchesGenre = genreText.includes(genreVal);
+        const matchesArtist = titleText.includes(artistVal);
+
+        review.style.display = (matchesGenre && matchesArtist) ? '' : 'none';
+      });
+    }
+
+    function updateTopRated() {
+      const reviews = document.querySelectorAll('.album-review');
+      const sorted = [...reviews].sort((a, b) => {
+        const ratingA = a.querySelector('.rating').textContent.length;
+        const ratingB = b.querySelector('.rating').textContent.length;
+        return ratingB - ratingA;
+      });
+      topRatedList.innerHTML = '';
+      sorted.slice(0, 5).forEach(r => {
+        const title = r.querySelector('h2').textContent;
+        const rating = r.querySelector('.rating').textContent;
+        const li = document.createElement('li');
+        li.textContent = `${title} – ${rating}`;
+        topRatedList.appendChild(li);
+      });
+    }
+
+    filterGenre.addEventListener('input', filterReviews);
+    filterArtist.addEventListener('input', filterReviews);
+    window.addEventListener('load', updateTopRated);
+  </script>
+</body>
+</html>
